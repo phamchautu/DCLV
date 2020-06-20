@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
 import rootReducer from './slices/rootReducer'
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const store=  configureStore({
   reducer: rootReducer,
@@ -16,7 +17,9 @@ const store=  configureStore({
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>  
   </Provider>,
   document.getElementById('root')
 );
