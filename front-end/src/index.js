@@ -7,7 +7,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './slices/rootReducer'
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom'
-
+import { enableES5 } from 'immer';
+enableES5();
 const store=  configureStore({
   reducer: rootReducer,
   middleware :[thunk],

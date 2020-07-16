@@ -1,7 +1,8 @@
-import counterReducer from '../components/counterSlice'
+import counterReducer from './counterSlice'
+import alertReducer from './alertSlice'
 const rootReducer ={
-    count : counterReducer
-} 
-console.log(rootReducer);
+    count : counterReducer,
+    alert : alertReducer
+}
 
 export default  rootReducer;
