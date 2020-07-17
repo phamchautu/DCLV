@@ -135,7 +135,7 @@ a:hover, a:active {
     position: fixed;
     top: 0;
     left: -320px;
-    z-index: 9999;
+    z-index: 999;
     width: 320px;
     max-width: calc(100% - 120px);
     height: 100%;
@@ -376,6 +376,17 @@ modal css */
 }
 .button.gradient-bg.button-close{
     background: lightgrey;
+}
+.button.gradient-bg.button-done{
+    border-color: transparent;
+    background: -moz-linear-gradient(180deg, rgb(131, 240, 122) 0%, rgb(0, 255, 85) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgb(0, 255, 85)), color-stop(100%, rgba(88,125,228,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(180deg, rgb(131, 240, 122) 0%, rgb(0, 255, 85)  100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(180deg, rgb(131, 240, 122) 0%, rgb(0, 255, 85) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(180deg, rgb(131, 240, 122) 0%, rgb(0, 255, 85)  100%); /* ie10+ */
+    background: linear-gradient(270deg, rgb(131, 240, 122) 0%, rgb(0, 255, 85) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18a3eb', endColorstr='#587de4',GradientType=1 ); /* ie6-9 */
+    color: #fff;
 }
 /*
 # Accordion
@@ -1612,6 +1623,7 @@ list data */
 }
 /*---------------
             login selection ------------*/
+          
 .login-modal{
     position: absolute;
 }

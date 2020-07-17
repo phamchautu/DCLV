@@ -4,36 +4,35 @@ import logo from '../../images/logo.png'
 import {Link} from 'react-router-dom'
 import { Steps, Button, message } from 'antd';
 import 'antd/dist/antd.css';
+import SignIn from '../signin';
+import SignUp from '../signup';
+import BookApp from '../bookApp/bookApp';
 const { Step } = Steps;
 // import '../../css/style.css'
 // import './style.css'
 const  Navbar=()=> {
-    const steps = [
-        {
-          title: 'Account Information'
-        },
-        {
-          title: 'Medical Record'
-        }
-      ];
-    const [currentStep, setcurrentStep] = useState(0);
+
+   
+    const [signed, setsigned] = useState(true);
     const [loginModal, setloginModal] =useState(0);
+    const [userModal, setuserModal] =useState(0);
 
-
-
-    const handleNext =()=>{
-        setcurrentStep(currentStep+1)
-
-    }
-    const handlePrev=()=>{  
-        setcurrentStep(currentStep -1)
-    }
     const handleSelectSignIn=()=>{
         setloginModal(0)
     }
     const handleSelectSignUp=()=>{
         setloginModal(1)
     }
+    const handleSelectBookApp=()=>{
+        setuserModal(0)
+    }
+    const handleSelectAccount=()=>{
+        setuserModal(1)
+    }
+    const handleSelectHistory=()=>{
+        setuserModal(2)
+    }
+
 
 
     return(
@@ -81,28 +80,59 @@ const  Navbar=()=> {
                                             </button>
                                         </div>
                                         <div class="modal-body p-0 px-3">
+                                                                                    {/*--------------- Not sign in yet-------------------- */}
+
+                                        {
+                                            signed ===false &&(
                                                 <div className='row'>
-                                                    <div className={`col login border-left ${loginModal ===0 ? 'active':''}`} onClick={handleSelectSignIn}>
+                                                    <div className={`col login  ${loginModal ===0 ? 'active':''}`} onClick={handleSelectSignIn}>
                                                         <div className='d-flex justify-content-center align-items-center'>SIGN IN</div>
                                                     </div>
                                                     
                                                     <div className={`col login ${loginModal ===1 ? 'active':''}`} onClick={handleSelectSignUp}>
                                                         <div className='d-flex justify-content-center align-items-center'>SIGN UP</div>
                                                     </div>
+                                                    <div className="steps-content m-3">
+                                                        { loginModal === 0 &&(
+                                                            <SignIn />
+                                                        )}
+                                                        { loginModal === 1 &&(
+                                                            <SignUp />
+                                                        )}
+                                                    </div>
                                                 </div>
+
                                         
-                                        
-                                            <div className="steps-content m-3">
-                                                { loginModal === 0 &&(
-                                                    <div>sign in</div>
-                                                )}
-                                                { loginModal === 1 &&(
-                                                    <div>sign up</div>
-                                                )}
-                                            
-                                            
-                                            </div>
-                                            
+                                            )}
+                                             
+                                             {/*---------------  signed-------------------- */}
+                                             {  signed ===true && (
+                                                 <>
+                                                <div className='row'>
+                                                    <div className={`col login  ${userModal ===0 ? 'active':''}`} onClick={handleSelectBookApp}>
+                                                        <div className='d-flex justify-content-center align-items-center'>Book Appointment</div>
+                                                    </div>
+                                                    <div className={`col login  ${userModal ===1 ? 'active':''}`} onClick={handleSelectAccount}>
+                                                        <div className='d-flex justify-content-center align-items-center'>Account</div>
+                                                    </div>
+                                                    <div className={`col login ${userModal ===2 ? 'active':''}`} onClick={handleSelectHistory}>
+                                                        <div className='d-flex justify-content-center align-items-center'>History</div>
+                                                    </div>
+                                                    
+                                                    </div>
+                                                    <div className="steps-content m-3">
+                                                        { userModal === 0 &&(
+                                                            <BookApp />
+                                                            )}
+                                                        { userModal === 1 &&(
+                                                            <SignIn />
+                                                        )}
+                                                         { userModal === 2 &&(
+                                                            <SignIn />
+                                                        )}
+                                                </div>
+                                                </>
+                                            )}
                                         </div>
                                         <div class="modal-footer border-0">
                                             <button type="button" class="button gradient-bg button-close" data-dismiss="modal">Close</button>

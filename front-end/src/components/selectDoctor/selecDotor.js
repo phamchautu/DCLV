@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import '../signin/signinStyle.css'
-const SignUp =()=>{
+const SelectDoctor =()=>{
    const [SelectedDate, setSelectedDate] = useState('')
    
   
     return (
         console.log(SelectedDate),
-        <div className='container'>
+        <div className='container mt-3'>
             <div className='row signin-division'>
                 <div className='col '>
                     <div class="signin-box mt-3">
@@ -32,4 +32,4 @@ const SignUp =()=>{
         </div>
     )
 }
-export default SignUp
+export default SelectDoctor

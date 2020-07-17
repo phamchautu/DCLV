@@ -7,6 +7,7 @@ import Contact from './components/page/contact';
 import Doctors from './components/page/doctors';
 import Hospital from './components/page/hospital';
 import ListData from './components/listdata';
+import HomepageBox from './components/hompageBoxes/homepageBoxes';
 function App() {
     // const count = useSelector(state => state.count);
     // console.log(count)
@@ -38,7 +39,7 @@ function App() {
             <NotFound />
           </Route>
           <Route path="/book" >
-            <ListData />
+            <HomepageBox />
           </Route>
           <Redirect to='/' />
         </Switch>
